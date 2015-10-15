@@ -4,6 +4,5 @@ import Test.DocTest
 
 main :: IO ()
 main = doctest [
-  "src/Sec01.hs",
-  "src/Sec22.hs"
+  "src/MinPath.hs"
   ]

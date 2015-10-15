@@ -2,7 +2,7 @@ module Main where
 
 import Data.Array.Accelerate ((:.)((:.)), (!))
 import qualified Data.Array.Accelerate as A
-import qualified Data.Array.Accelerate.Interpreter as I
+import qualified Data.Array.Accelerate.CUDA as I
 
 
 --- <Accelerate EDSL の仕組み>
@@ -92,7 +92,10 @@ sec6_7 = do -- Array の zip
   print $ I.run $ A.zipWith (+) a b
   -- 長さが違うと短いほうに揃う
 
-
+sec6_8 = do
+  let i = 7 :: Int
+      c = A.constant i :: A.Exp Int
+  print $ c
 
 
 
@@ -102,3 +105,4 @@ main = do
   -- sec6_5
   -- sec6_6
   sec6_7
+  sec6_8
